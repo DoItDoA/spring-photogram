@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="common/layout">
+
+<!--프로필셋팅 메인-->
+<main layout:fragment="content" class="main">
+    <!--프로필셋팅 섹션-->
+    <section class="setting-container">
+        <!--프로필셋팅 아티클-->
+        <article class="setting__content">
+
+            <!--프로필셋팅 아이디영역-->
+            <div class="content-item__01">
+                <div class="item__img">
+                    <img th:src="@{|/upload/${user.profileImageUrl}|}" onerror="this.src='/images/logo.jpg'" />
+                </div>
+                <div class="item__username">
+                    <h2>[[${user.username}]]</h2>
+                </div>
+            </div>
+            <!--프로필셋팅 아이디영역end-->
+
+            <!--프로필 수정-->
+            <form id="profileUpdate" th:object="${user}" th:onsubmit="update([[${user.id}]],event)">
+                <div class="content-item__02">
+                    <div class="item__title">이름</div>
+                    <div class="item__input">
+                        <input type="text" placeholder="이름" th:field="*{name}" required/>
+                    </div>
+                </div>
+                <div class="content-item__03">
+                    <div class="item__title">유저네임</div>
+                    <div class="item__input">
+                        <input type="text" placeholder="유저네임" th:field="*{username}" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="content-item__04">
+                    <div class="item__title">패스워드</div>
+                    <div class="item__input">
+                        <input type="password" name="password" placeholder="패스워드" required />
+                    </div>
+                </div>
+                <div class="content-item__05">
+                    <div class="item__title">웹사이트</div>
+                    <div class="item__input">
+                        <input type="text" placeholder="웹 사이트" th:field="*{website}" />
+                    </div>
+                </div>
+                <div class="content-item__06">
+                    <div class="item__title">소개</div>
+                    <div class="item__input">
+                        <textarea name="bio" id="" rows="3">[[${user.bio}]]</textarea>
+                    </div>
+                </div>
+                <div class="content-item__07">
+                    <div class="item__title"></div>
+                    <div class="item__input">
+                        <span><b>개인정보</b></span> <span>비즈니스나 반려동물 등에 사용된 계정인 경우에도
+							회원님의 개인 정보를 입력하세요. 공개 프로필에는 포함되지 않습니다.</span>
+                    </div>
+                </div>
+                <div class="content-item__08">
+                    <div class="item__title">이메일</div>
+                    <div class="item__input">
+                        <input type="text" placeholder="이메일" th:field="*{email}" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="content-item__09">
+                    <div class="item__title">전회번호</div>
+                    <div class="item__input">
+                        <input type="text" placeholder="전화번호" th:field="*{phone}" />
+                    </div>
+                </div>
+                <div class="content-item__10">
+                    <div class="item__title">성별</div>
+                    <div class="item__input">
+                        <input type="text" th:field="*{gender}" />
+                    </div>
+                </div>
+
+                <!--제출버튼-->
+                <div class="content-item__11">
+                    <div class="item__title"></div>
+                    <div class="item__input">
+                        <button>제출</button>
+                    </div>
+                </div>
+                <!--제출버튼end-->
+
+            </form>
+            <!--프로필수정 form end-->
+        </article>
+    </section>
+    <script th:src="@{/js/update.js}"></script>
+</main>
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="common/layout">
+
+<main layout:fragment="content" id="explore">
+    <ul class="explore__users u-default-box">
+
+        <li th:each="notification :${notifications}" class="explore__user" th:id="|notification-${notification.id}|">
+            <div class="explore__content">
+
+                <a th:href="@{|/user/${notification.fromUser.id}|}">
+                    <img th:src="@{|/upload/${notification.fromUser.profileImageUrl}|}" onerror="this.src='/images/logo.jpg'" />
+                    <div class="explore__info">
+                        <span class="explore__username">[[${notification.fromUser.username}]]이 '[[${notification.notificationType.key}]]' 하였습니다.</span>
+                    </div>
+                </a>
+                <button th:onclick="deleteAlarm([[${notification.id}]])"><i class="fas fa-times"></i></button>
+            </div>
+        </li>
+    </ul>
+    <script src="/js/notification.js"></script>
+</main>
+
+</html>

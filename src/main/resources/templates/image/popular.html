@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="common/layout">
+
+<!--인기 게시글-->
+<main layout:fragment="content" class="popular">
+    <div class="exploreContainer">
+
+        <!--인기게시글 갤러리(GRID배치)-->
+        <div class="popular-gallery">
+
+            <div th:each="image : ${images}" class="p-img-box">
+                <a href="#"> <img th:src="@{|/upload/${image.postImageUrl}|}" />
+                </a>
+                <a th:href="@{|/user/${image.userId}|}" class="">
+                    <div class="comment">
+                        <span>
+                            <i class="fas fa-heart"></i>[[${image.likesCount}]]
+                        </span>
+                        <span>
+                            <i class="fas fa-comment"></i>[[${image.commentsCount}]]
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+</html>

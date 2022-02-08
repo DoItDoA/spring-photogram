@@ -1,0 +1,72 @@
+@import "header.css";
+@import "footer.css";
+
+.exploreContainer {
+  width: 935px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.popular {
+  width: 100%;
+  padding-top: 84px;
+  padding-bottom: 30px;
+}
+.popular .exploreContainer {
+  flex-direction: column;
+}
+.popular .exploreContainer .popular-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box {
+  position: relative;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box img {
+
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box a {
+  display: block;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box:hover .comment {
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box .comment {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box .comment span{
+  color: #fff;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box .comment span:nth-child(1) {
+  margin-right: 15px;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box .comment i {
+  color: #fff;
+  margin-right: 10px;
+}
+
+
+

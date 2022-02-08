@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header class="header" th:fragment="fragment-header">
+    <input type="hidden" id="principalId" th:value="${#authentication.principal.user.id}"/>
+    <div class="container">
+        <a href="/" class="logo">
+            <img src="/images/logo.jpg" alt="">
+        </a>
+        <form action="javascript:searchInfoModalOpen();">
+            <input name="search" id="search" type="text" placeholder="Search">
+            <button style="background-color:white; border:0; ">
+                <i class="fa fa-search" style="font-size:15px"></i>
+            </button>
+        </form>
+        <nav class="navi">
+            <ul class="navi-list">
+                <li class="navi-item">
+                    <a th:href="@{/image/popular}">
+                        <i class="far fa-compass"></i>
+                    </a>
+                </li>
+                <li class="navi-item">
+                    <a th:href="@{|/notification/${#authentication.principal.user.id}|}">
+                        <i class="far fa-heart"></i>
+                    </a>
+                </li>
+                <li class="navi-item">
+                    <a th:href="@{|/user/${#authentication.principal.user.id}|}">
+                        <i class="far fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="modal-search">
+        <div class="search" style="width:300px">
+            <div class="search-header">
+                <span>검색 결과</span>
+                <button onclick="modalClose()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-list" id="searchModalList">
+            </div>
+        </div>
+    </div>
+    <script src="/js/header.js"></script>
+</header>
+
+</html>

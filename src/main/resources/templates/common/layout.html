@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photogram</title>
+
+    <!-- 제이쿼리 -->
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/story.css}">
+    <link rel="stylesheet" th:href="@{/css/popular.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/upload.css}">
+    <link rel="stylesheet" th:href="@{/css/update.css}">
+    <link rel="stylesheet" th:href="@{/css/explore.css}">
+    <link rel="shortcut icon" th:href="@{/images/insta.svg}">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css}"/>
+    <!-- Fonts -->
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap}"
+          rel="stylesheet">
+</head>
+
+<body>
+    <!-- principalId 담아두는 곳-->
+    <div sec:authorize="isAuthenticated()">
+        <div sec:authentication="principal"/>
+    </div>
+    <div th:replace="layout/header :: fragment-header"></div>
+
+    <div layout:fragment="content"></div>
+
+    <div th:replace="layout/footer :: fragment-footer"></div>
+</body>
+</html>

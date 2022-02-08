@@ -1,0 +1,10 @@
+cloud:
+  aws:
+    credentials:
+      instanceProfile: true
+    s3:
+      bucket: photogram-image
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false

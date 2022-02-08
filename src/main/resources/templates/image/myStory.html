@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="common/layout">
+
+<main layout:fragment="content" class="main">
+    <input type="hidden" id="myStory-imageId" th:value="${imageId}"/>
+    <section class="container">
+        <article class="story-list" id="myStory">
+
+        <!--    자바스크립트 내용    -->
+
+        </article>
+    </section>
+    <div class="modal-image" th:onclick="modalImage()">
+        <div class="modal">
+            <p>이미지 바꾸기</p>
+            <button th:onclick="imageUpload([[${imageId}]])">이미지 변경</button>
+            <button th:onclick="closePopup('.modal-image')">취소</button>
+        </div>
+    </div>
+
+    <script th:src="@{/js/myStory.js}"></script>
+</main>
+
+</html>
